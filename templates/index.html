@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block navbar %}
+      <li class="nav-li"><a href="{{url_for('index')}}"  class="active-element-nav">Home</a></li>
+      <li class="nav-li"><a href="{{url_for('login')}}" >Login</a></li>
+      <li class="nav-li"><a href="{{url_for('signup')}}">Register</a></li>
+      <li class="nav-li" style="float:right"><a href="https://bookkritic.wordpress.com/" target="_blank">Book Reviews</a></li>
+{% endblock %}
+
+{% block content %}
+
+<h3>home</h3>    
+{% endblock %}

@@ -1,0 +1,50 @@
+{%extends "layout.html"%}
+
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="/static/find.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
+{% endblock %}
+  
+{% block navbar %}
+<li class="nav-li"><a href="{{url_for('find')}}" >Search</a></li>
+<li class="nav-li"><a href="{{url_for('dashboard')}}" class="active-element-nav">Dashboard</a></li>
+<li class="nav-li"><a href="{{url_for('recommend_route')}}">Recommend</a></li>
+<li class="nav-li" style="float:right"><a href="{{url_for('logout')}}">Logout</a></li>
+{% endblock %}
+
+{%block content%}
+
+  <div class="result-container">
+    <div class="results" id="search-results">
+     <ul>
+      {%for list in books %}
+        {% for book in list%}
+          <li>
+              <article class="card">
+                <a href="{{book.url}}" target="_blank">
+                  <img src="{{book.cover}}" alt="{{book.title}}">
+                </a>
+                <div class="book-details">
+                    <h3>Title - {{book.title}}</h3>
+                    {%if book.publisher %}
+                    <h4> Publisher - {{book.publisher}}</h4>
+                    {% else %}
+                    <h4> Publisher - N/A</h4>
+                    {% endif %}
+                    <h5> Goodread Id - {{book.book_id}}</h5>
+                    <h5> Number of people who like this book as well - {{book.ratings}}</h5>
+                <div class="like liked"></div>
+            </article>
+          </li>
+        {%endfor%}
+      {%endfor%}
+     </ul>
+    </div>
+  </div>
+
+  <script src="/static/dashboard.js"></script>
+  
+  {%endblock%}
+  

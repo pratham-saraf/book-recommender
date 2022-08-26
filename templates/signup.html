@@ -1,0 +1,51 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='nav.css')}}">
+{% endblock %}
+
+{% block navbar %}
+<nav class="navigationWrapper">
+  <ul class="navigation">
+    <li class="nav-li"><a href="{{url_for('index')}}">Home</a></li>
+    <li class="nav-li"><a href="{{url_for('login')}}" >Login</a></li>
+    <li class="nav-li"><a href="{{url_for('signup')}}" class="active-element-nav">Register</a></li>
+    <li class="nav-li" style="float:right"><a href="https://bookkritic.wordpress.com/" target="_blank">Book Reviews</a></li>
+  </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <form class="form-signin" method="POST" action="/signup">
+    <h2 class="form-signin-heading">Sign Up</h2>
+    {% macro render_field(field) %}
+  <dt>{{ field.label }}
+  <dd>{{ field(**kwargs)|safe }}
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </dd>
+{% endmacro %}
+    {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.username) }}
+    {{ wtf.form_field(form.email) }}
+    {{ wtf.form_field(form.password) }}
+    {{ wtf.form_field(form.password2) }}
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  </form>
+
+</div> <!-- /container -->
+{% endblock %}

@@ -1,0 +1,15 @@
+wheel
+Flask==2.1.2
+pandas
+sklearn
+python-dotenv
+numpy
+Flask-Bootstrap
+Flask-WTF  
+pymongo
+dnspython
+Flask-Login
+Flask-Mail
+Bcrypt-Flask
+email-validator
+werkzeug==2.1.2

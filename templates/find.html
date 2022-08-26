@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="/static/find.css">
+<link rel="stylesheet" href="/static/nav.css">
+{% endblock %}
+
+{% block navbar %}
+<li class="nav-li"><a href="{{url_for('find')}}" class="active-element-nav" >Search</a></li>
+<li class="nav-li"><a href="{{url_for('dashboard')}}">Dashboard</a></li>
+<li class="nav-li"><a href="{{url_for('recommend_route')}}">Recommend</a></li>
+<li class="nav-li" style="float:right"><a href="{{url_for('logout')}}">Logout</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="form-container">
+  <form autocomplete="off">
+    <div class="finder">
+    <div class="finder__outer">
+    <div class="finder__inner">
+     <div class="finder__icon" ref="icon"></div>
+    <input class="finder__input" type="text" name="q" id="search" />
+        </div>
+      </div>
+    </div>
+  </form>
+  </div>
+  <div class="result-container">
+    <div class="results" id="search-results">
+    </div>
+</div>
+</div>
+  
+<script src="/static/find.js"></script>
+{% endblock %}
+
