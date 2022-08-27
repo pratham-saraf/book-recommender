@@ -1,7 +1,7 @@
 
 # Book Recommendation system
 
-[![kaggle]((https://kaggle.com/static/images/open-in-kaggle.svg))](https://www.kaggle.com/code/prathamsaraf1389/book-recommender-using-unsupervised-learning-eda)
+[View the notebook in kaggle](https://www.kaggle.com/code/prathamsaraf1389/book-recommender-using-unsupervised-learning-eda)
 
 This is a book recommender system which uses the unsupervised learning algorithm - Nearest Neighnours to predict next book to read
 
